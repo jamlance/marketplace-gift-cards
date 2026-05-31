@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img">
+  <defs>
+    <linearGradient id="lg-gift-cards" x1="32" y1="3" x2="32" y2="61" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#818cf8"/><stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect x="3" y="3" width="58" height="58" rx="15" fill="url(#lg-gift-cards)"/>
+  <rect x="3" y="3" width="58" height="58" rx="15" fill="#fff" opacity=".08"/>
+  <rect x="16" y="22" width="32" height="22" rx="4" fill="#fff"/><path fill="#7c3aed" d="M16 28h32v3H16z"/><path fill="none" stroke="#7c3aed" stroke-width="2.4" stroke-linecap="round" d="M22 38h6"/><circle cx="40" cy="38" r="2" fill="#7c3aed"/><path fill="none" stroke="#fff" stroke-width="2.6" d="M32 22c-2-5 4-7 4-2"/>
+</svg>

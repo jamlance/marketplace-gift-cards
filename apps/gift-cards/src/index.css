@@ -1,0 +1,60 @@
+@import "@inkress/apps-core/styles.css";
+
+/* Gift Cards — buy-page cards + redemption. */
+
+.gc-code { font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.04em; }
+
+.gc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.gc-card { padding: 16px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); box-shadow: var(--e1); }
+.gc-card-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
+.gc-denoms { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+.gc-link { display: flex; gap: 6px; margin-bottom: 10px; }
+.gc-link-input { font-size: 0.72rem; height: 32px; color: var(--ink-soft); }
+.gc-actions { display: flex; gap: 6px; align-items: center; }
+.gc-open { display: inline-grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--line-strong); border-radius: 7px; color: var(--ink-soft); }
+.gc-open:hover { background: var(--panel); }
+.gc-note { display: flex; align-items: center; gap: 8px; margin-top: 14px; }
+
+.gc-form { display: flex; flex-direction: column; gap: 12px; }
+.gc-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.gc-field { display: flex; flex-direction: column; gap: 5px; }
+.gc-check { display: flex; align-items: center; gap: 8px; font-size: 0.8125rem; color: var(--ink-soft); }
+.gc-check input { width: auto; height: auto; }
+
+.gc-redeem-result { margin-top: 12px; }
+.gc-balance { display: flex; align-items: baseline; justify-content: space-between; padding: 10px 12px; background: var(--panel); border-radius: 9px; margin-bottom: 10px; }
+.gc-balance b { font-size: 1.125rem; }
+.gc-bad { padding: 9px 12px; border-radius: 9px; background: var(--bad-wash); color: var(--bad); font-size: 0.8125rem; }
+
+/* card visual (the "template") */
+.gc-visual { border-radius: 14px; padding: 16px; margin-bottom: 12px; box-shadow: 0 6px 20px rgba(20,25,40,.18); }
+.gc-visual-name { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.85; }
+.gc-visual-amt { font-size: 1.6rem; font-weight: 800; margin: 4px 0 12px; }
+.gc-visual-code { display: flex; align-items: center; gap: 10px; }
+.gc-visual-qr { border-radius: 7px; background: #fff; padding: 3px; }
+.gc-visual-codelbl { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.8; }
+.gc-visual-codeval { font-family: var(--mono); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.05em; }
+
+/* toolbar + filters */
+.gc-toolbar { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.gc-row-actions { display: flex; gap: 6px; justify-content: flex-end; align-items: center; flex-wrap: wrap; }
+.gc-filterbar { display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin: 14px 0 10px; }
+.gc-seg { display: inline-flex; gap: 4px; background: var(--panel); border-radius: 10px; padding: 4px; flex-wrap: wrap; }
+.gc-seg-btn { border: none; background: transparent; color: var(--muted); font-weight: 600; font-size: 0.83rem; padding: 6px 11px; border-radius: 7px; cursor: pointer; }
+.gc-seg-btn.is-on { background: var(--card, #fff); color: var(--text); box-shadow: 0 1px 3px rgba(20,30,60,.08); }
+.gc-search { min-width: 180px; flex: 0 1 240px; }
+
+/* design editor */
+.gc-design-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; align-items: start; }
+@media (max-width: 680px) { .gc-design-grid { grid-template-columns: 1fr; } }
+.gc-themes { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 6px; }
+.gc-theme { width: 44px; height: 30px; border-radius: 8px; border: 2px solid transparent; cursor: pointer; }
+.gc-theme.is-on { border-color: var(--text); box-shadow: 0 0 0 2px var(--card, #fff), 0 0 0 4px var(--text); }
+.gc-imgbtns { display: flex; gap: 8px; align-items: center; }
+.gc-field-color input[type="color"] { width: 56px; height: 38px; padding: 2px; border-radius: 8px; cursor: pointer; }
+.gc-design-preview { position: sticky; top: 0; }
+
+/* scanner */
+.gc-redeem-tools { display: flex; gap: 8px; margin-top: 8px; }
+.gc-scan { margin-top: 10px; }
+.gc-scan-video { width: 100%; max-height: 220px; border-radius: 10px; background: #000; display: block; margin-bottom: 6px; }
