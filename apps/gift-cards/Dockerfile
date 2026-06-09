@@ -24,4 +24,4 @@ COPY apps/gift-cards/server.js ./apps/gift-cards/server.js
 EXPOSE 3000
 ENV PORT=3000 HOST=0.0.0.0
 WORKDIR /app/apps/gift-cards
-CMD ["node", "server.js"]
+CMD ["node", "--import", "@opentelemetry/auto-instrumentations-node/register", "server.js"]
