@@ -14,7 +14,7 @@
     "@aws-sdk/client-ses": "^3.700.0",
     "@inkress/admin-sdk": "^1.1.48",
     "@inkress/app-bridge": "github:jamlance/app-bridge",
-    "@inkress/app-kit": "github:jamlance/app-kit#7cc0f4990ce0093f57aff2aa0bc61945d177c9dc",
+    "@inkress/app-kit": "github:jamlance/app-kit#628ca992ef131e7a1ac210662bad9ad46388f4b0",
     "@inkress/storefront-sdk": "^0.0.1",
     "@react-router/express": "^7.17.0",
     "@react-router/node": "^7.17.0",

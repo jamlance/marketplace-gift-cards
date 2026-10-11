@@ -21,8 +21,8 @@ importers:
         specifier: github:jamlance/app-bridge
         version: https://codeload.github.com/jamlance/app-bridge/tar.gz/31c693b7345c2110bf92a482d63530feae0a8925
       '@inkress/app-kit':
-        specifier: github:jamlance/app-kit#7cc0f4990ce0093f57aff2aa0bc61945d177c9dc
-        version: https://codeload.github.com/jamlance/app-kit/tar.gz/7cc0f4990ce0093f57aff2aa0bc61945d177c9dc(@aws-sdk/client-s3@3.1149.0)(@aws-sdk/client-ses@3.1149.0)(@types/pg@8.23.1)(react-dom@19.3.0(react@19.3.0))(react-router@7.18.4(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)(typescript@5.9.3)
+        specifier: github:jamlance/app-kit#628ca992ef131e7a1ac210662bad9ad46388f4b0
+        version: https://codeload.github.com/jamlance/app-kit/tar.gz/628ca992ef131e7a1ac210662bad9ad46388f4b0(@aws-sdk/client-s3@3.1149.0)(@aws-sdk/client-ses@3.1149.0)(@types/pg@8.23.1)(react-dom@19.3.0(react@19.3.0))(react-router@7.18.4(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)(typescript@5.9.3)
       '@inkress/storefront-sdk':
         specifier: ^0.0.1
         version: 0.0.1
@@ -464,8 +464,8 @@ packages:
     version: 0.1.0
     engines: {node: '>=18'}
 
-  '@inkress/app-kit@https://codeload.github.com/jamlance/app-kit/tar.gz/7cc0f4990ce0093f57aff2aa0bc61945d177c9dc':
-    resolution: {tarball: https://codeload.github.com/jamlance/app-kit/tar.gz/7cc0f4990ce0093f57aff2aa0bc61945d177c9dc}
+  '@inkress/app-kit@https://codeload.github.com/jamlance/app-kit/tar.gz/628ca992ef131e7a1ac210662bad9ad46388f4b0':
+    resolution: {tarball: https://codeload.github.com/jamlance/app-kit/tar.gz/628ca992ef131e7a1ac210662bad9ad46388f4b0}
     version: 0.1.0
     engines: {node: '>=20'}
     peerDependencies:
@@ -1994,7 +1994,7 @@ snapshots:
 
   '@inkress/app-bridge@https://codeload.github.com/jamlance/app-bridge/tar.gz/31c693b7345c2110bf92a482d63530feae0a8925': {}
 
-  '@inkress/app-kit@https://codeload.github.com/jamlance/app-kit/tar.gz/7cc0f4990ce0093f57aff2aa0bc61945d177c9dc(@aws-sdk/client-s3@3.1149.0)(@aws-sdk/client-ses@3.1149.0)(@types/pg@8.23.1)(react-dom@19.3.0(react@19.3.0))(react-router@7.18.4(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)(typescript@5.9.3)':
+  '@inkress/app-kit@https://codeload.github.com/jamlance/app-kit/tar.gz/628ca992ef131e7a1ac210662bad9ad46388f4b0(@aws-sdk/client-s3@3.1149.0)(@aws-sdk/client-ses@3.1149.0)(@types/pg@8.23.1)(react-dom@19.3.0(react@19.3.0))(react-router@7.18.4(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)(typescript@5.9.3)':
     dependencies:
       '@inkress/admin-sdk': 1.2.0(typescript@5.9.3)
       '@inkress/app-bridge': https://codeload.github.com/jamlance/app-bridge/tar.gz/31c693b7345c2110bf92a482d63530feae0a8925
