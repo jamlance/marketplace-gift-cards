@@ -1,0 +1,30 @@
+/* Gift Cards: only what the kit doesn't cover. Everything else comes from @inkress/app-kit/ui.css. */
+.gc-card{border-radius:14px;padding:18px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;aspect-ratio:1.6;box-shadow:0 12px 30px -12px rgba(0,0,0,.4);background-size:cover;background-position:center;min-width:0}
+.gc-card .top{display:flex;justify-content:space-between;gap:10px;font-weight:600;font-size:14px}
+.gc-card .top span:last-child{opacity:.85;font-weight:500}
+.gc-card .amt{font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.gc-card .code{letter-spacing:.08em;opacity:.9;font-size:14px;font-weight:500;font-variant-numeric:tabular-nums}
+.gc-card.sm{aspect-ratio:auto;height:118px;padding:14px;border-radius:12px}
+.gc-card.sm .amt{font-size:22px}
+.gc-preview{background:var(--raise);border-radius:var(--radius-lg);padding:20px}
+.gc-preview p{font-size:13px;color:var(--fg2);text-align:center;margin:14px 0 0}
+.gc-designs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.gc-design{border:1px solid var(--line);border-radius:var(--radius-lg);padding:12px;display:flex;flex-direction:column;gap:12px;background:var(--panel)}
+.gc-design .meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.gc-design .meta b{font-weight:600;flex:1;min-width:0}
+.gc-themes{display:flex;gap:8px;flex-wrap:wrap}
+.gc-themes label{width:56px;height:36px;border-radius:8px;cursor:pointer;position:relative}
+.gc-themes input{position:absolute;opacity:0}
+.gc-themes label:has(input:checked){box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--fg)}
+.gc-themes label:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:4px}
+.gc-amounts{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.gc-amounts span{background:var(--raise);border-radius:6px;padding:2px 8px;font-size:13px;font-variant-numeric:tabular-nums}
+.gc-code{font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.gc-till{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}
+.gc-till .ui-field{margin:0;flex:1;min-width:220px}
+.gc-public-amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.gc-public-amounts label{border:1px solid var(--line);border-radius:10px;padding:12px 6px;text-align:center;font-weight:600;cursor:pointer;font-variant-numeric:tabular-nums}
+.gc-public-amounts input{position:absolute;opacity:0}
+.gc-public-amounts label:has(input:checked){border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);color:var(--accent-ink)}
+.gc-public-amounts label:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:700px){.gc-card .amt{font-size:24px}}
