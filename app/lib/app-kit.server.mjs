@@ -9,6 +9,7 @@ import { openMerchantTokens } from "@inkress/app-kit/server/tokens";
 import { createAwsBlobStore, createAwsEmailProvider } from "@inkress/app-kit/server/services";
 import { APP_DDL } from "./schema.server.mjs";
 import { cardEmailHtml } from "./card-design.mjs";
+import { cardOrderEvent, isPaid, isPaidLiveOrder, OrderEventKind } from "./order-event.mjs";
 
 const env = loadEnv();
 
@@ -92,12 +93,13 @@ export async function createOrder(accessToken, { referenceId, total, currency, t
   return { id: d?.id != null ? String(d.id) : null, paymentUrl: d?.payment_urls?.payment_url ?? null };
 }
 
-export async function getOrderStatus(accessToken, orderId) {
+/** True when the Inkress order is paid and is not a test payment (a test never activates a card). */
+export async function getOrderIsPaid(accessToken, orderId) {
   const d = await inkress(accessToken, `orders/${encodeURIComponent(orderId)}`);
-  return String(d?.status ?? d?.order?.status ?? "").toLowerCase();
+  return isPaidLiveOrder(d);
 }
 
-export const isPaid = (status) => ["paid", "confirmed", "completed", "fulfilled"].includes(String(status).toLowerCase());
+export { isPaid };
 
 /** Register the orders webhook once per merchant so paid cards activate instantly. Best effort. */
 export async function ensureWebhook(merchantId, accessToken) {
@@ -148,15 +150,22 @@ export async function activateCard(card) {
   }
 }
 
-// Inkress order webhook → activate the card it paid for.
+// Inkress order webhook → activate the card it paid for. A test payment activates nothing.
 export const webhookHandler = createWebhookHandler(appKit, async (evt) => {
   if (!db) return;
-  const p = evt.payload || {};
-  const order = p.order || p.data?.order || p.event?.data?.order || p.event?.data || p.data || {};
-  const status = String(order.status || evt.topic || "").toLowerCase();
-  if (!order.id || !(isPaid(status) || /paid|confirmed/.test(evt.topic))) return;
-  const card = await db.one(`SELECT * FROM cards WHERE merchant_id=$1 AND inkress_order_id=$2 AND state='awaiting'`, [evt.merchantId, String(order.id)]);
-  if (card) await activateCard(card);
+  const decision = cardOrderEvent(evt);
+  switch (decision.kind) {
+    case OrderEventKind.Test:
+      console.info(`[gift-cards] test order ${decision.orderId ?? "?"} ignored for merchant ${evt.merchantId}`);
+      return;
+    case OrderEventKind.Paid: {
+      const card = await db.one(`SELECT * FROM cards WHERE merchant_id=$1 AND inkress_order_id=$2 AND state='awaiting'`, [evt.merchantId, decision.orderId]);
+      if (card) await activateCard(card);
+      return;
+    }
+    default:
+      return;
+  }
 });
 
 // ---- scheduled delivery -----------------------------------------------------------------------

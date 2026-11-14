@@ -598,7 +598,7 @@ export async function cardsCsv(db: SchemaPg, merchantId: number): Promise<string
 
 /** When the payment webhook isn't registered, ask Inkress about recent unpaid cards. Bounded and best effort. */
 export async function syncAwaiting(db: SchemaPg, merchantId: number, accessToken: string): Promise<number> {
-  const { getOrderStatus, isPaid, activateCard } = await import("./app-kit.server.mjs");
+  const { getOrderIsPaid, activateCard } = await import("./app-kit.server.mjs");
   const rows = await db.q<CardRow & { inkress_order_id: string }>(
     `SELECT * FROM cards WHERE merchant_id=$1 AND state='awaiting' AND inkress_order_id IS NOT NULL AND created_at > now() - interval '3 days' ORDER BY id DESC LIMIT 5`,
     [merchantId],
@@ -608,7 +608,7 @@ export async function syncAwaiting(db: SchemaPg, merchantId: number, accessToken
     Promise.all(
       rows.map(async (r) => {
         try {
-          if (isPaid(await getOrderStatus(accessToken, r.inkress_order_id))) {
+          if (await getOrderIsPaid(accessToken, r.inkress_order_id)) {
             await activateCard(r);
             activated++;
           }
